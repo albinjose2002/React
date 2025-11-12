@@ -287,35 +287,40 @@ export default function AssyadCMSModern() {
       {/* Body */}
       <div className="   grid grid-cols-12 min-h-screen">
         {/* Sidebar */}
- <aside
+<aside
   className="col-span-12 lg:col-span-3 
              h-screen flex flex-col 
              overflow-y-auto lg:overflow-hidden 
              lg:fixed lg:top-20 lg:left-0 lg:w-[340px]"
 >
   <Card className="flex-1 h-full w-full">
-    <CardContent className="h-full flex flex-col justify-between relative">
+    <CardContent className="h-full flex flex-col relative">
       
       {/* Top section */}
-      <div className="grid gap-2">
-        {tabDefs.map(({ key, label, icon: Icon }) => (
-          <Button
-            key={key}
-            onClick={() => setTab(key)}
-            className={`justify-start ${
-              tab === key
-                ? `${colors.gradientMain} text-white`
-                : "bg-white border border-gray-200 text-gray-800"
-            }`}
-          >
-            <Icon className="w-4 h-4" /> {label}
-            {tab === key && <ChevronRight className="w-4 h-4 ml-auto" />}
-          </Button>
-        ))}
+      <div className=" ">
+        <div className="grid gap-2">
+          {tabDefs.map(({ key, label, icon: Icon }) => (
+            <Button
+              key={key}
+              onClick={() => setTab(key)}
+              className={`justify-start ${
+                tab === key
+                  ? `${colors.gradientMain} text-white`
+                  : "bg-white border border-gray-200 text-gray-800"
+              }`}
+            >
+              <Icon className="w-4 h-4" /> {label}
+              {tab === key && <ChevronRight className="w-4 h-4 ml-auto" />}
+            </Button>
+          ))}
+        </div>
+
+        {/* Add a flexible filler */}
+        <div className="flex-1" />
       </div>
 
       {/* Bottom section (Quick Filters) */}
-      <div className="mt-auto pt-10 lg:mb-[100px] mb-[00px]">
+    <div className="pt-10 lg:mb-[100px]">
         <div className="text-xs uppercase tracking-wide text-gray-500 mb-2">
           Quick Filters
         </div>
@@ -331,9 +336,42 @@ export default function AssyadCMSModern() {
           ))}
         </div>
       </div>
+     <div className="-mt-10">
+  <h1 className="text-sm font-semibold text-gray-700 mb-3">
+    Activity Log
+  </h1>
+  <div className="  rounded-lg overflow-hidden">
+    <div className="grid grid-cols-3 bg-gray-100 text-xs font-semibold text-gray-600 p-2">
+      <div>Date</div>
+      <div>Name</div>
+      <div>Event</div>
+    </div>
+
+    {/* Dummy Data */}
+    <div className="divide-y divide-gray-200 text-sm">
+      <div className="grid grid-cols-3 p-2 hover:bg-gray-50">
+        <div>2025-11-12</div>
+        <div>John Doe</div>
+        <div>Published a post</div>
+      </div>
+      <div className="grid grid-cols-3 p-2 hover:bg-gray-50">
+        <div>2025-11-11</div>
+        <div>Jane Smith</div>
+        <div>Updated profile</div>
+      </div>
+      <div className="grid grid-cols-3 p-2 hover:bg-gray-50">
+        <div>2025-11-10</div>
+        <div>Mark Wilson</div>
+        <div>Created a draft</div>
+      </div>
+    </div>
+  </div>
+</div>
+
     </CardContent>
   </Card>
 </aside>
+
 
 
 
